@@ -1,5 +1,8 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, First Row</Label>
+		<View>
+			<Label id="label" onClick="doClick">Hello, First Row</Label>
+			<Label id="test" onClick="doClick">Dominik schafft das!</Label>
+		</View>
 	</Window>
 </Alloy>
