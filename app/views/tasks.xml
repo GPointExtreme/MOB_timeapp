@@ -1,0 +1,23 @@
+<Alloy>
+	<Window class="container">
+		<View id="main">
+			<View id="inputLine">
+				<TextField id="neuer" hintText="Neuer Task"/>
+				<Button id="button" title="+" onClick="doClick2" />
+			</View>
+			<ListView defaultItemTemplate="template">
+				<Templates>
+					<ItemTemplate name="template">
+                    <Label bindId="info" id="title" />
+                    <Label bindId="es_info" id="subtitle" />
+                </ItemTemplate>
+				</Templates>
+				<ListSection dataCollection="tasks">
+	                <ListItem title="task" searchableText="Papaya"/>
+	                <ListItem title="time" searchableText="Peach"/>
+	                <ListItem title="Pear" searchableText="Pear"/>
+            </ListSection>
+			</ListView>
+		</View>
+	</Window>
+</Alloy>

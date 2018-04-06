@@ -1,0 +1,16 @@
+<Alloy>
+	<Window class="container">
+		<View id="main">
+			<View id="inputLine">
+				<TextField id="neuer" hintText="Neuer User"/>
+				<Button id="button" title="+" onClick="doClick2" />
+			</View>
+			<TableView id="names">
+				<TableViewSection id="sectionFruit" headerTitle="User">
+	                <TableViewRow title="Dominik" itemId="22" onClick="doClick"/>
+	                <TableViewRow title="Einhorn"/>
+	            </TableViewSection>
+			</TableView>
+		</View>
+	</Window>
+</Alloy>

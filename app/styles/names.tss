@@ -8,22 +8,32 @@
 	color: "white"
 }
 
-"#label": {
+"#inputLine": {
+	top: 0,
+	height: 100,
 	font: {
-		fontSize: 20
+		fontSize: 16
 	}
 }
 
-"#test": {
-	top: 400,
-	left: 200,
+"#button": {
+	right: 30,
+	width: 50,
+	font: {
+		fontSize: 16
+	}
+}
+
+"#neuer": {
+	left: 30,
+	width: 150,
 	font: {
 		fontSize: 16
 	}
 }
 
 "#names": {
-	top: 300,
+	top: 100,
 	font: {
 		fontSize: 16
 	}
