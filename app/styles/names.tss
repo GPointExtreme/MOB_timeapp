@@ -11,30 +11,26 @@
 "#inputLine": {
 	top: 0,
 	height: 100,
-	font: {
-		fontSize: 16
-	}
 }
 
 "#button": {
 	right: 30,
 	width: 50,
-	font: {
-		fontSize: 16
-	}
 }
 
 "#neuer": {
 	left: 30,
 	width: 150,
-	font: {
-		fontSize: 16
-	}
 }
 
-"#names": {
+"#liste": {
 	top: 100,
-	font: {
-		fontSize: 16
-	}
+}
+
+"#zeile": {
+	height: 40,
+}
+
+"#name": {
+	left: 40,
 }

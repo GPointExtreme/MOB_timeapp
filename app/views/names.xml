@@ -5,12 +5,17 @@
 				<TextField id="neuer" hintText="Neuer User"/>
 				<Button id="button" title="+" onClick="doClick2" />
 			</View>
-			<TableView id="names">
-				<TableViewSection id="sectionFruit" headerTitle="User">
-	                <TableViewRow title="Dominik" itemId="22" onClick="doClick"/>
-	                <TableViewRow title="Einhorn"/>
-	            </TableViewSection>
-			</TableView>
+			<ListView defaultItemTemplate="template" id="liste">
+				<Templates>
+					<ItemTemplate name="template" id="zeile">
+	                    <Label bindId="name" id="name" />
+	                </ItemTemplate>
+				</Templates>
+				<ListSection dataCollection="names" dataFunction="updateUI">
+	                <ListItem name:text="{name}">
+	                </ListItem>
+            	</ListSection>
+            </ListView>
 		</View>
 	</Window>
 </Alloy>

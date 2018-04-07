@@ -9,3 +9,6 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
+Alloy.Collections.names = Alloy.createCollection('names');
+
+Ti.App.Properties.setString('basisURL', 'http://10.0.3.2:3000/');
