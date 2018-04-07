@@ -5,14 +5,15 @@
 				<TextField id="neuer" hintText="Neuer User"/>
 				<Button id="button" title="+" onClick="doClick2" />
 			</View>
-			<ListView defaultItemTemplate="template" id="liste">
+			<ListView defaultItemTemplate="template" id="liste" onItemclick="doClick">
 				<Templates>
 					<ItemTemplate name="template" id="zeile">
 	                    <Label bindId="name" id="name" />
 	                </ItemTemplate>
 				</Templates>
 				<ListSection dataCollection="names" dataFunction="updateUI">
-	                <ListItem name:text="{name}">
+	                <ListItem name:text="{name}"
+	                		userid="{userid}">
 	                </ListItem>
             	</ListSection>
             </ListView>

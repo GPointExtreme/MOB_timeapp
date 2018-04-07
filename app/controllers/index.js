@@ -5,6 +5,17 @@ var connection = require('connection');
 connection.getusers({
 	success: function() {
 		names.fetch();
+		Ti.API.info(JSON.stringify(names));
+	}
+});
+
+var tasks = Alloy.Collections.tasks;
+tasks.fetch();
+
+
+connection.gettasks({
+	success: function() {
+		tasks.fetch();
 	}
 });
 

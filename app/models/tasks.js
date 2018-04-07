@@ -2,12 +2,13 @@ exports.definition = {
 	config: {
 		columns: {
 			"id": "INTEGER PRIMARY KEY AUTOINCREMENT",
-		    "name": "string",
+		    "name": "Text",
+		    "time": "Integer",
 		    "userid": "Integer"
 		},
 		adapter: {
 			type: "sql",
-			collection_name: "names",
+			collection_name: "tasks",
 			idAttribute: "id"
 		}
 	},

@@ -1,4 +1,4 @@
-var args = $.agrs;
+var args = $.args;
 var names = Alloy.Collections.names;
 names.fetch();
 
@@ -7,6 +7,9 @@ function doClick2(e) {
 }
 
 function doClick(e) {
-	var newWindow = Alloy.createController('tasks', {}).getView();
+	var section = $.liste.sections[e.sectionIndex];
+	var item = section.getItemAt(e.itemIndex);
+	
+	var newWindow = Alloy.createController('tasks', {user: item}).getView();
 	newWindow.open();
 }

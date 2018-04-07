@@ -10,5 +10,6 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 Alloy.Collections.names = Alloy.createCollection('names');
+Alloy.Collections.tasks = Alloy.createCollection('tasks');
 
 Ti.App.Properties.setString('basisURL', 'http://10.0.3.2:3000/');

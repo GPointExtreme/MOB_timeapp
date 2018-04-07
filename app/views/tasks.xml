@@ -5,18 +5,17 @@
 				<TextField id="neuer" hintText="Neuer Task"/>
 				<Button id="button" title="+" onClick="doClick2" />
 			</View>
-			<ListView defaultItemTemplate="template">
+			<ListView defaultItemTemplate="template" id="liste">
 				<Templates>
-					<ItemTemplate name="template">
-                    <Label bindId="info" id="title" />
-                    <Label bindId="es_info" id="subtitle" />
-                </ItemTemplate>
+					<ItemTemplate name="template" id="zeile">
+	                    <Label bindId="task" id="task" />
+                	</ItemTemplate>
 				</Templates>
-				<ListSection dataCollection="tasks">
-	                <ListItem title="task" searchableText="Papaya"/>
-	                <ListItem title="time" searchableText="Peach"/>
-	                <ListItem title="Pear" searchableText="Pear"/>
-            </ListSection>
+				<ListSection dataCollection="tasks" dataFilter="filterFunction" dataFunction="updateUI">
+	                <ListItem task:text="{name}"
+	                		userid="{userid}">
+	                </ListItem>
+            	</ListSection>
 			</ListView>
 		</View>
 	</Window>
