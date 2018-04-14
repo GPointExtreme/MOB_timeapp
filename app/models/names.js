@@ -3,12 +3,12 @@ exports.definition = {
 		columns: {
 			"id": "INTEGER PRIMARY KEY AUTOINCREMENT",
 		    "name": "string",
-		    "userid": "Integer"
+		    "userid": "Integer",
 		},
 		adapter: {
 			type: "sql",
 			collection_name: "names",
-			idAttribute: "id"
+			idAttribute: "id" 
 		}
 	},
 	extendModel: function(Model) {

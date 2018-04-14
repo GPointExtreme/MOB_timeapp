@@ -2,10 +2,6 @@ var args = $.args;
 var names = Alloy.Collections.names;
 names.fetch();
 
-function doClick2(e) {
-	var neu = Ti.API.info($.neuer.value);
-}
-
 function doClick(e) {
 	var section = $.liste.sections[e.sectionIndex];
 	var item = section.getItemAt(e.itemIndex);
@@ -13,3 +9,16 @@ function doClick(e) {
 	var newWindow = Alloy.createController('tasks', {user: item}).getView();
 	newWindow.open();
 }
+
+function doClick2(e) {
+	var neu = Ti.API.info($.neuer.value);
+	
+	var connection = require('connection');
+	connection.newuser({
+		success: function() {
+			names.fetch();
+			Ti.API.info(JSON.stringify(names));
+		}, username: $.neuer.value
+	});
+}
+
