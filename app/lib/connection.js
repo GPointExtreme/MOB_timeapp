@@ -94,8 +94,8 @@ exports.newuser = function(o) {
 			if(o.success) {
 				o.success();
 			}
-	};	
-	xhr.send(params);
+		xhr.send(params);
+	};
 	var names = Alloy.Collections.names;
 	Ti.API.info("Do sama eh");
 	
@@ -117,24 +117,40 @@ exports.newuser = function(o) {
 			Ti.API.info(JSON.stringify(names));
 		}
 	});
+	
 };
 
 //soll User die es nur lokal gibt finden und beim Server anlegen
 exports.reloade = function(o) {
 	var names = Alloy.Collections.names;
-	Ti.API.info(JSON.stringify(names));
+	Ti.API.info("Reloade: " + JSON.stringify(names));
 	names.fetch();
-	for (var i in names) {
-		Ti.API.info("HIER:" + JSON.stringify(names[i]));
 
-		if(names[i].userid === 0) {
-		  	exports.newuser({
-				success: function() {
-					names.fetch();
-					Ti.API.info(JSON.stringify(names[i]));
-				}, username: names[i].name
-			});
-	  	}
+	var i = 0;
+	while (i < names.length) {
+		var object = names.at([i]).toJSON();
+		if(object.userid == 0) {
+			Ti.API.info(object.userid);
+		  	
+				var xhr = Titanium.Network.createHTTPClient({});
+				
+				var params = {"username":object.name};
+				
+				xhr.open('POST', Ti.App.Properties.getString('basisURL') + 'users');
+				
+				xhr.onload = function(e) {
+					var response = JSON.parse(this.responseText);
+					Ti.API.info(this.responseText);
+					var names = Alloy.Collections.names;
+				};
+				
+					if(o.success) {
+						o.success();
+					}
+				xhr.send(params);
+			};	
+	  	
+	  	i++;
 	};
 	if(o.success) {
 		o.success();

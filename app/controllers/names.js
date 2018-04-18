@@ -22,3 +22,13 @@ function doClick2(e) {
 	});
 }
 
+function doRefresh(e) {
+	var connection = require('connection');
+	connection.reloade({
+		success: function() {
+			names.fetch();
+			Ti.API.info(JSON.stringify(names));
+		}
+	});
+}
+
