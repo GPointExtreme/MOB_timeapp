@@ -178,7 +178,7 @@ exports.reloade = function(o) {
 	var i = 0;
 	var x = 0;
 	var xhr = Titanium.Network.createHTTPClient({});
-	var xhr2 = Titanium.Network.createHTTPClient({});
+
 	while (i < names.length) {
 		var object = names.at([i]).toJSON();
 		if(object.userid == 0) {
@@ -212,7 +212,7 @@ exports.reloade = function(o) {
 		var objectT = tasks.at([x]).toJSON();
 		if(objectT.taskid == 0) {
 			Ti.API.info(objectT);
-			var params = {"name":objectT.name, "userid":objectT.id};
+			var params = {"name":objectT.name, "userid":objectT.userid};
 
 			xhr.open('POST', Ti.App.Properties.getString('basisURL') + 'tasks');
 			

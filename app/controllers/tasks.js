@@ -1,6 +1,8 @@
 var args = $.args;
 var tasks = Alloy.Collections.tasks;
+var names = Alloy.Collections.names;
 tasks.fetch();
+names.fetch();
 
 Ti.API.info(JSON.stringify(args.user));
 
@@ -28,8 +30,8 @@ function doRefresh(e) {
 	var connection = require('connection');
 	connection.reloade({
 		success: function() {
-			names.fetch();
-			Ti.API.info(JSON.stringify(names));
+			tasks.fetch();
+			Ti.API.info(JSON.stringify(tasks));
 		}
 	});
 }
