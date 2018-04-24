@@ -5,7 +5,15 @@ tasks.fetch();
 Ti.API.info(JSON.stringify(args.user));
 
 function doClick2(e) {
-	var neu = Ti.API.info($.neuer.value);	
+	var neu = Ti.API.info($.neuer.value);
+	
+	var connection = require('connection');
+	connection.newtask({
+		success: function() {
+			tasks.fetch();
+			Ti.API.info(JSON.stringify(tasks));
+		}, name: $.neuer.value, userid: args.user.properties.userid
+	});
 }
 
 function filterFunction(collection) {

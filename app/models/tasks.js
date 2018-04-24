@@ -2,6 +2,7 @@ exports.definition = {
 	config: {
 		columns: {
 			"id": "INTEGER PRIMARY KEY AUTOINCREMENT",
+			"taskid": "Integer",
 		    "name": "Text",
 		    "time": "Integer",
 		    "userid": "Integer"
