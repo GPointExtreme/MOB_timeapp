@@ -35,3 +35,7 @@ function doRefresh(e) {
 		}
 	});
 }
+
+function doClick3(e) {
+	Ti.API.info($.zeit.value);
+}

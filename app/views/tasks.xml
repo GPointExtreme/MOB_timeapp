@@ -11,10 +11,11 @@
 					<ItemTemplate name="template" id="zeile">
 	                    <Label bindId="task" id="task" />
 	                    <TextField id="zeit" hintText="in Min."/>
+	                    <Button id="timebutton" title="+" onClick="doClick3" />
                 	</ItemTemplate>
 				</Templates>
 				<ListSection dataCollection="tasks" dataFilter="filterFunction" dataFunction="updateUI">
-	                <ListItem task:text="{name}"
+	                <ListItem task:text="{name} - {time}"
 	                		userid="{userid}">
 	                </ListItem>
             	</ListSection>

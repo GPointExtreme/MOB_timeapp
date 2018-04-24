@@ -30,6 +30,13 @@
 
 "#zeit": {
 	//INPUT_TYPE_CLASS_NUMBER : Number,
+	right: 90,
+	width: 70,
+}
+
+"#timebutton": {
+	right: 30,
+	width: 50,
 }
 
 "#liste": {
