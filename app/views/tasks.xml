@@ -3,20 +3,20 @@
 		<View id="main">
 			<View id="inputLine">
 				<TextField id="neuer" hintText="Neuer Task"/>
+				<TextField id="zeit" hintText="in Min."/>
 				<Button id="button" title="+" onClick="doClick2" />
 				<Button id="refresh" title="⟳" onClick="doRefresh" />
 			</View>
-			<ListView defaultItemTemplate="template" id="liste">
+			<ListView defaultItemTemplate="template" id="liste" >
 				<Templates>
 					<ItemTemplate name="template" id="zeile">
 	                    <Label bindId="task" id="task" />
-	                    <TextField id="zeit" hintText="in Min."/>
 	                    <Button id="timebutton" title="+" onClick="doClick3" />
                 	</ItemTemplate>
 				</Templates>
 				<ListSection dataCollection="tasks" dataFilter="filterFunction" dataFunction="updateUI">
 	                <ListItem task:text="{name} - {time}"
-	                		userid="{userid}">
+	                		taskid="{taskid}">
 	                </ListItem>
             	</ListSection>
 			</ListView>

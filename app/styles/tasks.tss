@@ -30,7 +30,7 @@
 
 "#zeit": {
 	//INPUT_TYPE_CLASS_NUMBER : Number,
-	right: 90,
+	right: 140,
 	width: 70,
 }
 

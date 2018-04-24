@@ -37,5 +37,17 @@ function doRefresh(e) {
 }
 
 function doClick3(e) {
-	Ti.API.info($.zeit.value);
+	var connection = require('connection');
+	
+	var section = $.liste.sections[e.sectionIndex];
+	var item = section.getItemAt(e.itemIndex);
+	//Ti.API.info("HIER2" + JSON.stringify(item));
+	//Ti.API.info("HIER3" + JSON.stringify(item.properties.taskid));
+	//Ti.API.info(item);
+	connection.updateTask({
+		success: function() {
+			tasks.fetch();
+			Ti.API.info(JSON.stringify(tasks));
+		}, time: $.zeit.value, taskid: item.properties.taskid
+	});
 }

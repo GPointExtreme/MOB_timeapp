@@ -230,3 +230,47 @@ exports.reloade = function(o) {
 		x++;
 	}
 };
+
+exports.updateTask = function(o) {
+	if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE) {
+		var xhr = Titanium.Network.createHTTPClient({});
+		
+		var params = {"time":o.time};
+		Ti.API.info("HIER" + JSON.stringify(o));
+		
+		xhr.open('POST', Ti.App.Properties.getString('basisURL') + 'tasks/' + o.taskid);
+		
+		xhr.onload = function(e) {
+			var response = JSON.parse(this.responseText);
+			Ti.API.info(this.responseText);
+			var tasks = Alloy.Collections.tasks;
+		};
+		
+			if(o.success) {
+				o.success();
+			}
+		xhr.send(params);
+	};
+	var tasks = Alloy.Collections.tasks;
+	Ti.API.info("Do sama eh");
+	
+	//Damit hinzufügen auch offline funktioniert
+	var tasksdata = {};
+	tasksdata.name = o.name;
+	tasksdata.userid = o.userid;
+	tasksdata.taskid = 0;
+	var task = Alloy.createModel('tasks', tasksdata);
+	tasks.add(task);
+	task.save();
+
+	tasks.fetch();
+	Ti.API.info(JSON.stringify(tasks));
+	
+	//Lokale Daten wegwerfen falls wir eh mit dem Server verbunden sind
+	exports.gettasks({
+		success: function() {
+			tasks.fetch();
+			Ti.API.info(JSON.stringify(tasks));
+		}
+	});
+};
