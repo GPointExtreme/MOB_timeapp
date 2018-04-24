@@ -9,6 +9,7 @@
 				<Templates>
 					<ItemTemplate name="template" id="zeile">
 	                    <Label bindId="task" id="task" />
+	                    <TextField id="zeit" hintText="in Min."/>
                 	</ItemTemplate>
 				</Templates>
 				<ListSection dataCollection="tasks" dataFilter="filterFunction" dataFunction="updateUI">

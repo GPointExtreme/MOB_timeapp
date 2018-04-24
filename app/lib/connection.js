@@ -170,17 +170,20 @@ exports.newtask = function(o) {
 //soll User die es nur lokal gibt finden und beim Server anlegen
 exports.reloade = function(o) {
 	var names = Alloy.Collections.names;
+	var tasks = Alloy.Collections.tasks;
 	Ti.API.info("Reloade: " + JSON.stringify(names));
 	names.fetch();
-
+	tasks.fetch();
+	
 	var i = 0;
+	var x = 0;
+	var xhr = Titanium.Network.createHTTPClient({});
+	var xhr2 = Titanium.Network.createHTTPClient({});
 	while (i < names.length) {
 		var object = names.at([i]).toJSON();
 		if(object.userid == 0) {
 			Ti.API.info(object.userid);
 		  	
-				var xhr = Titanium.Network.createHTTPClient({});
-				
 				var params = {"username":object.name};
 				
 				xhr.open('POST', Ti.App.Properties.getString('basisURL') + 'users');
@@ -190,16 +193,40 @@ exports.reloade = function(o) {
 					Ti.API.info(this.responseText);
 					var names = Alloy.Collections.names;
 				};
-				
 					if(o.success) {
 						o.success();
 					}
 				xhr.send(params);
+				
 			};	
-	  	
 	  	i++;
 	};
 	if(o.success) {
 		o.success();
+	}
+	
+	Ti.API.info("reloading tasks");
+	Ti.API.info(JSON.stringify(tasks));
+	x = 0;
+	while(x < tasks.length) {
+		var objectT = tasks.at([x]).toJSON();
+		if(objectT.taskid == 0) {
+			Ti.API.info(objectT);
+			var params = {"name":objectT.name, "userid":objectT.id};
+
+			xhr.open('POST', Ti.App.Properties.getString('basisURL') + 'tasks');
+			
+			xhr.onload = function(e) {
+				var response = JSON.parse(this.responseText);
+				Ti.API.info(this.responseText);
+				var tasks = Alloy.Collections.tasks;
+			};
+			
+				if(o.success) {
+					o.success();
+				}
+			xhr.send(params);
+		}
+		x++;
 	}
 };

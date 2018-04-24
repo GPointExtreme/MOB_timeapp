@@ -23,6 +23,10 @@
 	width: 150,
 }
 
+"#zeit": {
+	//INPUT_TYPE_CLASS_NUMBER : Number,
+}
+
 "#liste": {
 	top: 100,
 }
