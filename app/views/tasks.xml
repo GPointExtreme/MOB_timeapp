@@ -4,6 +4,7 @@
 			<View id="inputLine">
 				<TextField id="neuer" hintText="Neuer Task"/>
 				<Button id="button" title="+" onClick="doClick2" />
+				<Button id="refresh" title="⟳" onClick="doRefresh" />
 			</View>
 			<ListView defaultItemTemplate="template" id="liste">
 				<Templates>

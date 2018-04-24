@@ -23,3 +23,13 @@ function filterFunction(collection) {
 	Ti.API.info(JSON.stringify(re));
 	return re;
 }
+
+function doRefresh(e) {
+	var connection = require('connection');
+	connection.reloade({
+		success: function() {
+			names.fetch();
+			Ti.API.info(JSON.stringify(names));
+		}
+	});
+}
