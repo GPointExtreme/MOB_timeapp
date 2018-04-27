@@ -260,7 +260,7 @@ exports.updateTask = function(o) {
 	tasksdata.name = o.name;
 	tasksdata.userid = o.userid;
 	tasksdata.taskid = 0;
-	tasksdata.time = 0;
+	//tasksdata.time = 0;
 	var task = Alloy.createModel('tasks', tasksdata);
 	tasks.add(task);
 	task.save();
