@@ -14,12 +14,12 @@
 }
 
 "#button": {
-	right: 90,
+	right: 180,
 	width: 50,
 }
 
 "#refresh": {
-	right: 30,
+	right: 120,
 	width: 50,
 }
 
@@ -30,7 +30,7 @@
 
 "#zeit": {
 	//INPUT_TYPE_CLASS_NUMBER : Number,
-	right: 140,
+	right: 30,
 	width: 70,
 }
 

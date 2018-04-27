@@ -15,7 +15,7 @@
                 	</ItemTemplate>
 				</Templates>
 				<ListSection dataCollection="tasks" dataFilter="filterFunction" dataFunction="updateUI">
-	                <ListItem task:text="{name} - {time}"
+	                <ListItem task:text="{name} - Gebuchte Zeit: {time}"
 	                		taskid="{taskid}">
 	                </ListItem>
             	</ListSection>
